@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ISLA — Тропический Курорт</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="loader">
+  <div class="loader-logo">ISLA</div>
+  <div class="loader-bar"><div class="loader-fill" id="loader-fill"></div></div>
+  <div class="loader-text">Preparing your paradise...</div>
+</div>
+
+
+<div class="bubble-container" id="bubbles"></div>
+
+<nav>
+  <a href="#hero" class="nav-logo">ISLA</a>
+  <div class="nav-bubbles">
+    <a href="#entertainment" class="nav-bubble"><span class="icon">🎉</span><span class="label">FUN</span></a>
+    <a href="#gallery"       class="nav-bubble"><span class="icon">🌊</span><span class="label">МОРЕ</span></a>
+    <a href="#atmosphere"    class="nav-bubble"><span class="icon">🌅</span><span class="label">АТМ</span></a>
+    <a href="#booking"       class="nav-bubble"><span class="icon">🏝️</span><span class="label">БРОНЬ</span></a>
+  </div>
+</nav>
+
+<section id="hero">
+  <canvas id="sky-canvas"></canvas>
+  <canvas id="ocean-canvas"></canvas>
+
+  <div class="parallax-layer beach-layer"></div>
+
+  <div class="starfish" style="bottom:20%;left:12%">⭐</div>
+  <div class="starfish" style="bottom:16%;right:15%;font-size:1rem;animation-delay:2s">🌟</div>
+  <div class="crab"     style="bottom:18%">🦀</div>
+  <div class="boat"     style="top:35%">⛵</div>
+
+  <div class="parallax-layer" style="z-index:6;bottom:0;height:80%;pointer-events:none" id="palms-far">
+    <div class="palm-far-left">
+      <svg viewBox="0 0 200 450" xmlns="http://www.w3.org/2000/svg" class="palm-tree" id="palm1">
+        <g style="transform-origin:100px 450px">
+          <path d="M95,450 Q80,380 88,300 Q82,220 90,150 Q88,100 92,60" stroke="#5D4037" stroke-width="12" fill="none" stroke-linecap="round"/>
+          <path d="M90,80 Q30,20 -20,40 Q20,50 90,100"   fill="#2D6A4F" opacity="0.9"/>
+          <path d="M92,70 Q60,-20 100,-40 Q95,20 92,80"  fill="#40916C" opacity="0.9"/>
+          <path d="M92,75 Q140,10 180,30 Q140,55 92,95"  fill="#2D6A4F" opacity="0.85"/>
+          <path d="M90,85 Q20,60 0,100 Q40,90 90,110"    fill="#1B4332" opacity="0.8"/>
+          <path d="M94,72 Q130,-30 160,-20 Q130,30 94,90" fill="#40916C" opacity="0.8"/>
+          <circle cx="91" cy="98" r="8" fill="#8B4513"/>
+          <circle cx="98" cy="92" r="7" fill="#A0522D"/>
+        </g>
+      </svg>
+    </div>
+    <div class="palm-far-right">
+      <svg viewBox="0 0 200 450" xmlns="http://www.w3.org/2000/svg" class="palm-tree" id="palm2">
+        <g style="transform-origin:100px 450px">
+          <path d="M105,450 Q120,380 112,300 Q118,220 110,150 Q112,100 108,60" stroke="#5D4037" stroke-width="12" fill="none" stroke-linecap="round"/>
+          <path d="M110,80 Q170,20 220,40 Q180,50 110,100" fill="#2D6A4F" opacity="0.9"/>
+          <path d="M108,70 Q140,-20 100,-40 Q105,20 108,80" fill="#40916C" opacity="0.9"/>
+          <path d="M108,75 Q60,10 20,30 Q60,55 108,95"  fill="#2D6A4F" opacity="0.85"/>
+          <path d="M110,85 Q180,60 200,100 Q160,90 110,110" fill="#1B4332" opacity="0.8"/>
+          <circle cx="109" cy="98" r="8" fill="#8B4513"/>
+          <circle cx="102" cy="92" r="7" fill="#A0522D"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <div class="parallax-layer" style="z-index:9;bottom:0;height:100%;pointer-events:none" id="palms-near">
+    <div class="palm-near-left">
+      <svg viewBox="0 0 280 580" xmlns="http://www.w3.org/2000/svg" width="280">
+        <g id="palmNL" style="transform-origin:140px 580px">
+          <path d="M132,580 Q108,480 120,380 Q110,280 122,180 Q118,110 124,50" stroke="#4A2C0A" stroke-width="18" fill="none" stroke-linecap="round"/>
+          <path d="M122,80 Q30,0 -30,30 Q20,60 122,120"     fill="#1B4332" opacity="0.95"/>
+          <path d="M124,65 Q80,-60 130,-90 Q125,20 124,85"  fill="#2D6A4F" opacity="0.95"/>
+          <path d="M124,72 Q200,-10 260,20 Q200,60 124,105" fill="#1B4332" opacity="0.9"/>
+          <path d="M120,90 Q20,60 -10,110 Q40,98 120,130"   fill="#0A2618" opacity="0.85"/>
+          <path d="M126,68 Q180,-80 220,-55 Q175,40 126,95" fill="#40916C" opacity="0.9"/>
+          <path d="M120,78 Q60,-40 50,20 Q90,40 120,105"    fill="#2D6A4F" opacity="0.85"/>
+          <circle cx="124" cy="118" r="12" fill="#6B3A2A"/>
+          <circle cx="134" cy="108" r="11" fill="#8B4513"/>
+          <circle cx="115" cy="108" r="10" fill="#6B3A2A"/>
+        </g>
+      </svg>
+    </div>
+    <div class="palm-near-right">
+      <svg viewBox="0 0 320 620" xmlns="http://www.w3.org/2000/svg" width="320" style="transform:scaleX(-1)">
+        <g id="palmNR" style="transform-origin:160px 620px">
+          <path d="M152,620 Q128,510 142,400 Q130,300 144,190 Q140,115 148,45" stroke="#4A2C0A" stroke-width="20" fill="none" stroke-linecap="round"/>
+          <path d="M144,75 Q40,-10 -20,20 Q30,55 144,120"   fill="#1B4332" opacity="0.95"/>
+          <path d="M148,60 Q100,-80 155,-110 Q148,15 148,82" fill="#2D6A4F" opacity="0.95"/>
+          <path d="M148,68 Q240,-15 300,18 Q238,58 148,108"  fill="#1B4332" opacity="0.9"/>
+          <path d="M142,88 Q20,55 -5,108 Q45,96 142,130"    fill="#0A2618" opacity="0.85"/>
+          <path d="M150,64 Q215,-95 255,-68 Q205,35 150,92"  fill="#40916C" opacity="0.9"/>
+          <circle cx="148" cy="122" r="14" fill="#6B3A2A"/>
+          <circle cx="160" cy="110" r="12" fill="#8B4513"/>
+          <circle cx="138" cy="112" r="11" fill="#6B3A2A"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <div class="hero-content">
+    <p class="hero-pretitle">✦ Welcome to Your Paradise ✦</p>
+    <h1 class="hero-title">
+      ISLA
+      <em>tropical resort</em>
+    </h1>
+    <p class="hero-subtitle">Где каждый закат — произведение искусства,<br>а океан шепчет тебе имя</p>
+    <div class="hero-cta">
+      <a href="#booking" class="btn-primary">🌺 Начать Отдых</a>
+    </div>
+  </div>
+
+  <div class="scroll-indicator">
+    <div class="scroll-line"></div>
+    <div class="scroll-text">Прокрути</div>
+  </div>
+</section>
+
+<section id="entertainment">
+  <div class="section-header reveal">
+    <span class="section-tag">✦ Развлечения</span>
+    <h2 class="section-title">Твой <span>идеальный</span><br>отдых</h2>
+  </div>
+
+  <div class="cards-grid">
+    <div class="glass-card" style="transition-delay:0.1s">
+      <span class="card-number">01</span>
+      <div class="card-glow" style="background:#FF8C42"></div>
+      <span class="card-icon">🎉</span>
+      <h3 class="card-title">Пляжные Вечеринки</h3>
+      <p class="card-desc">Ночные вечеринки под звёздами на белоснежном песке. DJ-сеты, огненное шоу и танцы до рассвета.</p>
+      <span class="card-tag" style="color:#FF8C42;border-color:rgba(255,140,66,0.4)">Every Night</span>
+    </div>
+    <div class="glass-card" style="transition-delay:0.2s">
+      <span class="card-number">02</span>
+      <div class="card-glow" style="background:#00D4D8"></div>
+      <span class="card-icon">🏄</span>
+      <h3 class="card-title">Водные Развлечения</h3>
+      <p class="card-desc">Сёрфинг, дайвинг, кайтбординг и подводные экскурсии к коралловым рифам.</p>
+      <span class="card-tag" style="color:#00D4D8;border-color:rgba(0,212,216,0.4)">All Day</span>
+    </div>
+    <div class="glass-card" style="transition-delay:0.3s">
+      <span class="card-number">03</span>
+      <div class="card-glow" style="background:#FF6B6B"></div>
+      <span class="card-icon">🍹</span>
+      <h3 class="card-title">Коктейль-Бар</h3>
+      <p class="card-desc">Тропические коктейли от мастеров-барменов. Эксклюзивные рецепты и фирменные напитки острова.</p>
+      <span class="card-tag" style="color:#FF6B6B;border-color:rgba(255,107,107,0.4)">Open Bar</span>
+    </div>
+    <div class="glass-card" style="transition-delay:0.4s">
+      <span class="card-number">04</span>
+      <div class="card-glow" style="background:#00FFD1"></div>
+      <span class="card-icon">🧘</span>
+      <h3 class="card-title">Релакс Зона</h3>
+      <p class="card-desc">Спа-процедуры, йога на закате, тайский массаж и медитации под шёпот волн.</p>
+      <span class="card-tag" style="color:#00FFD1;border-color:rgba(0,255,209,0.4)">Sunrise &amp; Sunset</span>
+    </div>
+    <div class="glass-card" style="transition-delay:0.5s">
+      <span class="card-number">05</span>
+      <div class="card-glow" style="background:#FFD700"></div>
+      <span class="card-icon">🎵</span>
+      <h3 class="card-title">Музыка &amp; Танцы</h3>
+      <p class="card-desc">Live-концерты, латинские ритмы, самба и босса-нова под открытым небом.</p>
+      <span class="card-tag" style="color:#FFD700;border-color:rgba(255,215,0,0.4)">Live Music</span>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="gallery-intro reveal">
+    <span class="section-tag">✦ Галерея</span>
+    <h2 class="section-title">Остров<br><span>в деталях</span></h2>
+  </div>
+
+  <div class="gallery-slider-wrapper">
+    <button class="gallery-btn gallery-btn-prev" id="galleryPrev" aria-label="Назад">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+
+    <div class="gallery-track-outer">
+      <div class="gallery-track" id="galleryTrack">
+        <div class="gallery-item gi-1">
+          <div class="gallery-bg"><img style="height: 100%;" src="img/закат.jpg" alt="закат"></div>
+          <div class="gallery-overlay"></div>
+          <div class="gallery-label"><h3>Огненный Закат</h3><p>Каждый вечер — новый шедевр</p></div>
+        </div>
+        <div class="gallery-item gi-2">
+          <div class="gallery-bg"><img style="height: 100%;" src="img/океан.avif" alt="океан"></div>
+          <div class="gallery-overlay"></div>
+          <div class="gallery-label"><h3>Бирюзовый Океан</h3><p>Прозрачность до 40 метров</p></div>
+        </div>
+        <div class="gallery-item gi-3">
+          <div class="gallery-bg"><img style="height: 100%;" src="img/пальмы.jpg" alt="пальмы"></div>
+          <div class="gallery-overlay"></div>
+          <div class="gallery-label"><h3>Пальмовый Рай</h3><p>Тропическая флора острова</p></div>
+        </div>
+        <div class="gallery-item gi-4">
+          <div class="gallery-bg"><img style="height: 100%;" src="img/бар.jpg" alt="бар"></div>
+          <div class="gallery-overlay"></div>
+          <div class="gallery-label"><h3>Вечерний Бар</h3><p>Авторские коктейли</p></div>
+        </div>
+        <div class="gallery-item gi-5">
+          <div class="gallery-bg"><img style="height: 100%;" src="img/небо.jpg" alt="небо"></div>
+          <div class="gallery-overlay"></div>
+          <div class="gallery-label"><h3>Ночное Небо</h3><p>Млечный Путь над островом</p></div>
+        </div>
+      </div>
+    </div>
+
+    <button class="gallery-btn gallery-btn-next" id="galleryNext" aria-label="Вперёд">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <div class="gallery-dots" id="galleryDots">
+    <button class="gallery-dot active" data-index="0"></button>
+    <button class="gallery-dot" data-index="1"></button>
+    <button class="gallery-dot" data-index="2"></button>
+    <button class="gallery-dot" data-index="3"></button>
+    <button class="gallery-dot" data-index="4"></button>
+  </div>
+</section>
+
+<section id="atmosphere">
+  <div class="atm-visual reveal">
+    <div class="atm-canvas"></div>
+    <div class="atm-scene">
+      <div class="sunset-sun"></div>
+      <div class="sun-reflection"></div>
+    </div>
+    <div class="starfish" style="top:15%;right:12%;font-size:2rem">🌸</div>
+    <div class="starfish" style="top:25%;left:8%;font-size:1.5rem;animation-delay:1s">🌺</div>
+    <div style="position:absolute;bottom:20%;right:20%;font-size:1.2rem;animation:float 5s ease-in-out infinite;animation-delay:2s;opacity:0.6">🐚</div>
+    <div style="position:absolute;bottom:12%;left:18%;font-size:1.8rem;animation:float 7s ease-in-out infinite;opacity:0.5">🦋</div>
+  </div>
+
+  <div class="atm-text reveal" style="transition-delay:0.2s">
+    <p class="atm-quote">«Место, где время <em>замедляется</em>,<br>а душа находит покой»</p>
+    <p class="atm-body">
+      ISLA — это не просто курорт. Это состояние души. Здесь каждый рассвет встречает тебя шёпотом волн, а закат красит небо в оттенки, которые не придумать.
+      <br><br>
+      Мы создали пространство, где цивилизация растворяется в горизонте, а единственное расписание — это приливы и отливы.
+    </p>
+    <div class="stats-row">
+      <div class="stat">
+        <span class="stat-number">12+</span>
+        <span class="stat-label">Лет на острове</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">98%</span>
+        <span class="stat-label">Счастливых гостей</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">∞</span>
+        <span class="stat-label">Закатов для тебя</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="booking">
+  <div class="booking-container">
+    <div class="booking-card reveal">
+      <h2 class="booking-title">Забронируй<br><em style="font-style:italic;color:var(--turquoise)">свой рай</em></h2>
+      <p class="booking-sub">Первый шаг к незабываемому отдыху</p>
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label">Ваше имя</label>
+          <input type="text" class="form-input" placeholder="Имя и фамилия">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-input" placeholder="your@email.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Дата заезда</label>
+          <input type="date" class="form-input">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Дата выезда</label>
+          <input type="date" class="form-input">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Количество гостей</label>
+          <select class="form-input" style="background:rgba(0,0,0,0.4);color:white">
+            <option style="background:#001a2e">1 гость</option>
+            <option style="background:#001a2e">2 гостя</option>
+            <option style="background:#001a2e">3–4 гостя</option>
+            <option style="background:#001a2e">5+ гостей</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Тип размещения</label>
+          <select class="form-input" style="background:rgba(0,0,0,0.4);color:white">
+            <option style="background:#001a2e">🏖️ Бунгало на пляже</option>
+            <option style="background:#001a2e">🌊 Вилла над водой</option>
+            <option style="background:#001a2e">🌴 Тропический люкс</option>
+            <option style="background:#001a2e">⭐ Президентский сьют</option>
+          </select>
+        </div>
+        <div class="form-group full">
+          <label class="form-label">Особые пожелания</label>
+          <textarea class="form-input" rows="3" placeholder="Медовый месяц, аллергии, особые пожелания..." style="resize:vertical;min-height:90px"></textarea>
+        </div>
+      </div>
+      <button class="btn-book" onclick="handleBook(this)">🌺 Начать Путешествие</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">ISLA</div>
+  <div class="footer-copy">© 2024 ISLA Tropical Resort · All rights reserved · Made with 🌊</div>
+  <div class="footer-icons">
+    <a href="#" class="footer-icon">📸</a>
+    <a href="#" class="footer-icon">🐦</a>
+    <a href="#" class="footer-icon">💬</a>
+    <a href="#" class="footer-icon">▶️</a>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
